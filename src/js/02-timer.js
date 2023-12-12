@@ -61,12 +61,14 @@ function TimerDisplay(time) {
 
 function Countdown(selectedDate) {
   clearInterval(countdownInterval);
-  const timerId = setInterval(() => {
+
+  function updateCountdown() {
+    
       const currentDate = new Date().getTime();
       const timeShow = selectedDate - currentDate;
 
       if (timeShow <= 0) {
-        clearInterval(timerId);
+        clearInterval(countdownInterval);
         TimerDisplay(convertMs(0));
         startBtn.setAttribute('disabled', true);
         return;
@@ -75,7 +77,9 @@ function Countdown(selectedDate) {
       const convert = convertMs(timeShow);
       TimerDisplay(convert);
 
-    },1000);
+  }
+  updateCountdown();
+  countdownInterval = setInterval(updateCountdown, 1000);
 }
 
 
