@@ -26,5 +26,7 @@ startBtn.addEventListener('click', function () {
 
 stopBtn.addEventListener('click', function () {
   stopColorChange();
-  startBtn.toggleAttribute('disabled');
+
+    startBtn.removeAttribute('disabled');
+
 });
