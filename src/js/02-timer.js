@@ -41,9 +41,12 @@ const options = {
     const selectedDate = selectedDates[0];
     if (selectedDate <= new Date()) {
       alert("Please choose a date in the future");
+      startBtn.setAttribute('disabled',true);
       return;
     }
-    startBtn.removeAttribute('disabled');
+    else {
+      startBtn.removeAttribute('disabled');
+    }
   },
 };
 flatpickr("#datetime-picker", options);
